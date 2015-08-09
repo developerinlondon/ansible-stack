@@ -1,0 +1,14 @@
+---
+
+- hosts: lb:web
+  sudo: yes  
+  gather_facts: yes
+  roles:
+    - { role: base }
+
+# lb
+- hosts: lb
+  sudo: yes  
+
+  roles:
+    - { role: lb }

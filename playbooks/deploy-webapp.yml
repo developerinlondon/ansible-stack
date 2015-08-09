@@ -1,0 +1,32 @@
+---
+
+# common
+- hosts: lb:web
+  tasks: []
+
+# web
+- hosts: web
+  sudo: yes
+  gather_facts: no
+  vars:
+    # https://github.com/jweissig/episode-47/releases
+    app_version: release-0.01
+  serial: 1
+
+  pre_tasks:
+
+  - name: disable server in haproxy
+    shell: echo "disable server webapp/{{ inventory_hostname }}" | socat stdio /var/lib/haproxy/stats
+    delegate_to: "{{ item }}"
+    with_items: groups.lb
+
+  roles:
+    - { role: base }
+    - { role: web }
+
+  post_tasks:
+
+  - name: enable server in haproxy
+    shell: echo "enable server webapp/{{ inventory_hostname }}" | socat stdio /var/lib/haproxy/stats
+    delegate_to: "{{ item }}"
+    with_items: groups.lb

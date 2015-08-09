@@ -1,0 +1,19 @@
+---
+
+- name: Install useful packages.
+  apt: name={{ item }} state=installed force=yes update_cache=yes
+  with_items:
+    - unzip
+    - git
+    - git-core
+    - htop
+    - lynx-cur
+    - ntp
+
+- name: Enable ntp at startup.
+  service: name=ntp enabled=yes
+
+- name: Make sure these are started
+  service: name={{ item }} state=started
+  with_items:
+    - ntp

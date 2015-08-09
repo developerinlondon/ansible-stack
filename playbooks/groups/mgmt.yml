@@ -1,0 +1,11 @@
+---
+
+# mgmt
+- hosts: mgmt
+  sudo: yes
+  gather_facts: yes
+
+  roles:
+    - { role: base }
+    - { role: mgmt }
+#    - { role: jenkins }

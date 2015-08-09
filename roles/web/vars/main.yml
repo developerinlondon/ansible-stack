@@ -1,0 +1,7 @@
+---
+
+# this is the repository that holds our sample webapp
+repository: https://github.com/developerinlondon/mywebapp.git
+
+# this is the sha1sum of the test webapp.
+app_version: d0248c7aec639414a0fae3ea1f2a26ceef9f4e09
