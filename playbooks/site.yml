@@ -21,3 +21,11 @@
 
   roles:
     - { role: lb }
+
+# nexus
+- hosts: nexus
+  sudo: yes
+  gather_facts: yes
+
+  roles:
+    { role: nexus }

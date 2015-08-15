@@ -1,0 +1,6 @@
+---
+
+- name: deploy website content
+  git: repo={{ repository }}
+       dest=/usr/share/nginx/html/
+       version={{ app_version }}

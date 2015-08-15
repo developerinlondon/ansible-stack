@@ -1,0 +1,5 @@
+---
+
+- name: clean existing website content
+  #shell: rm -f /usr/share/nginx/html/*
+  file: path=/usr/share/nginx/html/ state=absent

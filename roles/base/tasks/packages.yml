@@ -1,0 +1,11 @@
+---
+
+- name: Install useful packages.
+  apt: name={{ item }} state=installed force=yes update_cache=yes
+  with_items:
+    - unzip
+    - git
+    - git-core
+    - htop
+    - lynx-cur
+    - ntp

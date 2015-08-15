@@ -1,6 +1,6 @@
 ---
 
-- hosts: lb:web
+- hosts: lb:web:nexus
   sudo: yes
   gather_facts: yes
   remote_user: vagrant

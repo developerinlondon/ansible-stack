@@ -1,0 +1,8 @@
+---
+
+- name: Install Java
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - openjdk-7-jre
+    - openjdk-7-jdk
+  tags: java

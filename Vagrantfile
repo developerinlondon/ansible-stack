@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
       mgmt_config.vm.network "forwarded_port", guest: 9000, host: 9000
       mgmt_config.vm.network "forwarded_port", guest: 3128, host: 3128
       mgmt_config.vm.provider "virtualbox" do |vb|
-        vb.memory = "256"
+        vb.memory = "512"
       end
       mgmt_config.vm.synced_folder "roles", "/home/vagrant/roles"
       mgmt_config.vm.synced_folder "inventory", "/home/vagrant/inventory"
@@ -65,6 +65,18 @@ Vagrant.configure("2") do |config|
       #    ansible.inventory_path = "inventory/vagrant.ini"
        # end
     end
+  end
+
+  # create nexus
+
+  config.vm.define :nexus do |nexus_config|
+      nexus_config.vm.box = "ubuntu/trusty64"
+      nexus_config.vm.hostname = "lb"
+      nexus_config.vm.network :private_network, ip: "10.0.15.41"
+      nexus_config.vm.network "forwarded_port", guest: 80, host: 8085
+      nexus_config.vm.provider "virtualbox" do |vb|
+        vb.memory = "256"
+      end
   end
 
 end

@@ -1,12 +1,12 @@
 ---
 placeholder: 'placeholder'
-port: 9080
-# plugins:
-#   - 'ldap'
-#   - 'github'
-#   - 'translation'
-#   - 'preSCMbuildstep'
-#   - 'gravatar'
+port: 9000
+plugins:
+  - 'ldap'
+  - 'github'
+  - 'translation'
+  - 'preSCMbuildstep'
+  - 'gravatar'
 
 proxy: no
 proxy_host: localhost

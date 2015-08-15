@@ -8,4 +8,4 @@
   roles:
     - { role: base }
     - { role: mgmt }
-#    - { role: jenkins }
+    - { role: jenkins }

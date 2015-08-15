@@ -1,0 +1,14 @@
+---
+
+- name: Add Ansible Repository
+  apt_repository: repo='ppa:ansible/ansible' state=present 
+
+- name: Install ansible
+  apt: name={{ item }} state=installed force=yes update_cache=yes
+  with_items:
+    - ansible
+    - python-software-properties
+    - language-pack-en
+
+- name: deploy the ansible.cfg file
+  template: src=ansible.cfg.j2 dest=/home/vagrant/ansible.cfg force=yes owner=vagrant mode=0644

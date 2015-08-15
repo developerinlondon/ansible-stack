@@ -1,0 +1,11 @@
+---
+
+# lb
+- hosts: nexus
+  sudo: yes  
+  gather_facts: yes
+
+  roles:
+    - { role: base }
+    - { role: nexus }
+
